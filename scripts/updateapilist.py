@@ -77,9 +77,12 @@ def client_row(client: CloudClient) -> str:
 
     content_row = [
         f"   * - `{client.title} <https://github.com/{client.repo}>`_\n",
-        f"     - " + "|" + client.release_level + "|\n"
-        f"     - |PyPI-{client.distribution_name}|\n",
+        (
+            f"     - |{client.release_level}" + "|\n"
+            f"     - |PyPI-{client.distribution_name}|\n"
+        ),
     ]
+
 
     return (content_row, pypi_badge)
 
